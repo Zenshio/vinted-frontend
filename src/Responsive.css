@@ -19,6 +19,10 @@
 }
 
 @media (max-width: 768px) {
+  .Header .signup-button {
+    display: none;
+  }
+
   .Offers {
     justify-content: center;
   }
