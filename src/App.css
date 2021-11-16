@@ -158,24 +158,30 @@ input[type="checkbox"] {
 
 .home-hero {
   background-image: url("./assets/img/hero.jpg");
-  height: 455px;
+  min-height: 65vh;
   width: 100%;
   position: relative;
   background-position: 50%;
   background-size: cover;
 }
 
+.home-hero .container {
+  display: flex;
+  height: 65vh;
+  align-items: center;
+}
+
 .home-hero-tear-style {
   position: absolute;
   bottom: 0;
   right: 0;
-  height: 80px;
+  height: 4vw;
   pointer-events: none;
 }
 
 .home-hero-text {
-  height: 220px;
-  width: 360px;
+  height: 260px;
+  width: 400px;
   background-color: #fff;
   padding: 25px;
   border-radius: 3px;
@@ -183,8 +189,6 @@ input[type="checkbox"] {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position: absolute;
-  top: 75px;
   box-shadow: 0 0 2px rgba(17, 17, 17, 0.24);
 }
 
@@ -196,7 +200,7 @@ input[type="checkbox"] {
   color: #fff;
   font-size: 16px;
   border: none;
-  padding: 0 14px;
+  padding: 10px 14px;
   margin-top: 32px;
 }
 
