@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import { useLocation, Navigate } from "react-router-dom";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import { toast } from "react-toastify";
 
 import CheckoutForm from "../../components/CheckoutForm";
@@ -49,76 +50,83 @@ const Payment = ({ auth }) => {
     };
 
     fetchData();
-  }, [offerId]);
+  }, [offerId, orderAmount]);
 
   return !offerId || !auth.isAuthenticated ? (
     <Navigate to={!offerId ? "/" : "/login"} />
   ) : isLoading ? (
     <Loader />
   ) : (
-    <main className="Main bcg-gray">
-      <div className="Payment">
-        <div className="container">
-          <div className="payment-card summary">
-            <div className="title">Résumé de la commande</div>
-            <div className="content">
-              <ul>
-                <li>
-                  Commande{" "}
-                  <span>
-                    <Price num={offer.product_price} />
-                  </span>
-                </li>
-                <li>
-                  Frais protection acheteurs{" "}
-                  <span>
-                    <Price num={protectionFeeAmount(offer.product_price)} />
-                  </span>
-                </li>
-                <li>
-                  Frais de port{" "}
-                  <span>
-                    <Price num={deliveryFeeAmount(offer.product_price)} />
-                  </span>
-                </li>
-              </ul>
-            </div>
-            <div className="divider"></div>
-            <div className="content">
-              <ul>
-                <li className="bold">
-                  Total{" "}
-                  <span>
-                    <Price num={deliveryFeeAmount(orderAmount)} />
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="payment-card">
-            <div className="content">
-              Il ne vous reste plus qu'un étape pour vous offrir
-              <span className="bold"> {offer.product_name} </span>. Vous allez
-              payer{" "}
-              <span className="bold">
-                {" "}
-                <Price num={deliveryFeeAmount(orderAmount)} />{" "}
-              </span>
-              (frais de protection et frais de port inclus).
+    <>
+      <HelmetProvider>
+        <Helmet>
+          <title>Vinted | Paiement</title>
+        </Helmet>
+      </HelmetProvider>
+      <main className="Main bcg-gray">
+        <div className="Payment">
+          <div className="container">
+            <div className="payment-card summary">
+              <div className="title">Résumé de la commande</div>
+              <div className="content">
+                <ul>
+                  <li>
+                    Commande{" "}
+                    <span>
+                      <Price num={offer.product_price} />
+                    </span>
+                  </li>
+                  <li>
+                    Frais protection acheteurs{" "}
+                    <span>
+                      <Price num={protectionFeeAmount(offer.product_price)} />
+                    </span>
+                  </li>
+                  <li>
+                    Frais de port{" "}
+                    <span>
+                      <Price num={deliveryFeeAmount(offer.product_price)} />
+                    </span>
+                  </li>
+                </ul>
+              </div>
               <div className="divider"></div>
-              <Elements stripe={stripePromise}>
-                <CheckoutForm
-                  auth={auth}
-                  amount={orderAmount}
-                  currency="eur"
-                  product_name={offer.product_name}
-                />
-              </Elements>
+              <div className="content">
+                <ul>
+                  <li className="bold">
+                    Total{" "}
+                    <span>
+                      <Price num={orderAmount} />
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="payment-card">
+              <div className="content">
+                Il ne vous reste plus qu'un étape pour vous offrir
+                <span className="bold"> {offer.product_name} </span>. Vous allez
+                payer{" "}
+                <span className="bold">
+                  {" "}
+                  <Price num={orderAmount} />{" "}
+                </span>
+                (frais de protection et frais de port inclus).
+                <div className="divider"></div>
+                <Elements stripe={stripePromise}>
+                  <CheckoutForm
+                    auth={auth}
+                    amount={orderAmount}
+                    currency="eur"
+                    product_name={offer.product_name}
+                  />
+                </Elements>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </>
   );
 };
 
