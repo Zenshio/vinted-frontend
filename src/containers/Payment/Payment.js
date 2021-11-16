@@ -105,7 +105,7 @@ const Payment = ({ auth }) => {
             <div className="payment-card">
               <div className="content">
                 Il ne vous reste plus qu'un étape pour vous offrir
-                <span className="bold"> {offer.product_name} </span>. Vous allez
+                <span className="bold"> {offer.product_name}</span>. Vous allez
                 payer{" "}
                 <span className="bold">
                   {" "}

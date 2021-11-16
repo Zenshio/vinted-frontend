@@ -32,4 +32,12 @@
     object-fit: cover;
     min-width: 100%;
   }
+
+  .Offer .offer-details {
+    width: 100%;
+  }
+
+  .Payment div.container {
+    width: 100%;
+  }
 }
