@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import lib from "../lib/lib";
+import Price from "./Price";
 
 const Offers = ({ data }) => {
   const navigate = useNavigate();
@@ -28,7 +28,9 @@ const Offers = ({ data }) => {
                   alt={offer.product_name}
                 />
                 <div className="offer-product-details">
-                  <span>{lib.formatPrice(offer.product_price)}</span>
+                  <span>
+                    <Price num={offer.product_price} />
+                  </span>
                   <span>{size}</span>
                   <span>{brand}</span>
                 </div>

@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 import { toast } from "react-toastify";
 
+import Price from "../../components/Price";
 import Loader from "../../components/Loader";
 
 import "./Offer.css";
-import lib from "../../lib/lib";
 
 const Offer = () => {
   const { id } = useParams();
@@ -56,7 +56,7 @@ const Offer = () => {
               <div className="offer-details">
                 <div>
                   <span className="offer-price">
-                    {lib.formatPrice(offer.product_price)}
+                    <Price num={offer.product_price} />
                   </span>
                   <ul className="offer-details-list">
                     {offer.product_details.map((product_detail, index) => {

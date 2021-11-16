@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 import CheckoutForm from "../../components/CheckoutForm";
 
 import Loader from "../../components/Loader";
-import lib from "../../lib/lib";
+import Price from "../../components/Price";
 
 import "./Payment.css";
 
@@ -64,18 +64,21 @@ const Payment = ({ auth }) => {
             <div className="content">
               <ul>
                 <li>
-                  Commande <span>{lib.formatPrice(offer.product_price)}</span>
+                  Commande{" "}
+                  <span>
+                    <Price num={offer.product_price} />
+                  </span>
                 </li>
                 <li>
                   Frais protection acheteurs{" "}
                   <span>
-                    {lib.formatPrice(protectionFeeAmount(offer.product_price))}
+                    <Price num={protectionFeeAmount(offer.product_price)} />
                   </span>
                 </li>
                 <li>
                   Frais de port{" "}
                   <span>
-                    {lib.formatPrice(deliveryFeeAmount(offer.product_price))}
+                    <Price num={deliveryFeeAmount(offer.product_price)} />
                   </span>
                 </li>
               </ul>
@@ -84,7 +87,10 @@ const Payment = ({ auth }) => {
             <div className="content">
               <ul>
                 <li className="bold">
-                  Total <span>{lib.formatPrice(orderAmount)}</span>
+                  Total{" "}
+                  <span>
+                    <Price num={deliveryFeeAmount(orderAmount)} />
+                  </span>
                 </li>
               </ul>
             </div>
@@ -94,7 +100,10 @@ const Payment = ({ auth }) => {
               Il ne vous reste plus qu'un étape pour vous offrir
               <span className="bold"> {offer.product_name} </span>. Vous allez
               payer{" "}
-              <span className="bold"> {lib.formatPrice(orderAmount)} </span>
+              <span className="bold">
+                {" "}
+                <Price num={deliveryFeeAmount(orderAmount)} />{" "}
+              </span>
               (frais de protection et frais de port inclus).
               <div className="divider"></div>
               <Elements stripe={stripePromise}>
