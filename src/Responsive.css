@@ -1,0 +1,35 @@
+@media (max-width: 1328px) {
+  div.container {
+    margin: 0px 20px;
+  }
+
+  .Header input.search-input {
+    width: 420px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .Header div.search-container {
+    display: none;
+  }
+
+  button.header-button {
+    width: 90px;
+  }
+}
+
+@media (max-width: 768px) {
+  .Offers {
+    justify-content: center;
+  }
+
+  .Offer .container {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .Offer .offer-picture {
+    object-fit: cover;
+    min-width: 100%;
+  }
+}

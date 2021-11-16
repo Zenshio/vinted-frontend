@@ -1,0 +1,85 @@
+.Payment .container {
+  width: 600px;
+  margin: 0 auto;
+  padding: 36px 20px;
+}
+
+.Payment .payment-card {
+  background: #fff;
+}
+
+.Payment .payment-card > .title {
+  display: block;
+  font-size: 14px;
+  line-height: 18px;
+  color: #999;
+  padding: 24px 24px 8px;
+}
+
+.Payment .payment-card .content {
+  padding: 24px;
+  text-align: justify;
+}
+
+.Payment .payment-card ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.Payment .payment-card li {
+  font-size: 16px;
+  line-height: 22px;
+  color: #666;
+  padding: 4px 0;
+  display: grid;
+  grid: auto/1fr auto;
+  align-items: center;
+}
+
+.Payment .payment-card .divider {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: rgba(17, 17, 17, 0.1);
+  margin: 24px 0;
+}
+
+.Payment .payment-card .content .bold {
+  font-weight: 700;
+}
+
+.Payment .payment-card li.bold {
+  color: #111;
+  font-weight: 700;
+}
+
+.Payment .payment-card input,
+.StripeElement {
+  display: block;
+  margin: 10px 0 20px;
+  padding: 10px 14px;
+  font-size: 1em;
+  font-family: "Source Code Pro", monospace;
+  box-shadow: 0 1px 3px rgba(50, 50, 93, 0.14902),
+    0 1px 0 rgba(0, 0, 0, 0.0196078);
+  border: 0;
+  outline: 0;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.Payment .payment-card button {
+  margin-top: 8px;
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  line-height: 22px;
+  height: 44px;
+  padding: 0 14px;
+  color: #fff;
+  border: 1px solid;
+  border-radius: 4px;
+  background: #09b1ba;
+  border-color: #09b1ba;
+}

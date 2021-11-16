@@ -1,1 +1,29 @@
 /* Reset rules */
+a {
+  color: unset;
+  text-decoration: none;
+}
+
+a:hover {
+  color: unset;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button,
+input {
+  outline: none;
+}
+
+@font-face {
+  font-family: "Maison Neue";
+  src: url("./assets/fonts/Font.eot");
+  src: url("./assets/fonts/Font.eot?#iefix") format("embedded-opentype"),
+    url("./assets/fonts/Font.woff2") format("woff2"),
+    url("./assets/fonts/Font.woff") format("woff"),
+    url("./assets/fonts/Font.ttf") format("truetype"),
+    url("./assets/fonts/Font.svg#Font") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

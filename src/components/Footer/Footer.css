@@ -1,0 +1,28 @@
+.Footer {
+  margin-top: auto;
+  line-height: 48px;
+}
+
+.Footer .footer-container {
+  text-align: center;
+  border-top: 1px solid rgba(17, 17, 17, 0.08);
+  color: #666;
+  font-size: 12px;
+}
+
+.Footer.offer-footer {
+  background-color: #ebedee;
+}
+
+.Footer a {
+  margin: 0px 8px;
+  font-weight: bold;
+}
+
+.Main.bcg-gray {
+  min-height: calc(100vh - 113px);
+}
+
+.Main.bcg-gray + .Footer {
+  background-color: #ebedee;
+}
